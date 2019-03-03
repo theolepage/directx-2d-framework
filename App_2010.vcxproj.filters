@@ -5,14 +5,36 @@
       <UniqueIdentifier>{8e114980-c1a3-4ada-ad7c-83caadf5daeb}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
     </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{e852d1c7-6e61-476b-96e2-ba6c9f9f1dbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\boilerplate">
+      <UniqueIdentifier>{b8b29063-fd01-48ff-8779-c7494b9387c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\boilerplate\entity">
+      <UniqueIdentifier>{556f3e13-216d-448d-9b3d-0d6ffdebc329}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\boilerplate\entity\shape">
+      <UniqueIdentifier>{bee95eac-ea57-403e-bff3-568b5e87f236}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\boilerplate\render">
+      <UniqueIdentifier>{03626652-95a8-4226-acad-123ff012f4bc}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Shaders">
       <UniqueIdentifier>{2c3d4c8c-5d1a-459a-a05a-a4e4b608a44e}</UniqueIdentifier>
       <Extensions>fx;fxh;hlsl</Extensions>
     </Filter>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ClCompile Include="App.cpp" />
+    <ClCompile Include="fcolor.cpp">
+      <Filter>src\boilerplate\render</Filter>
+    </ClCompile>
+    <ClCompile Include="circle.cpp">
+      <Filter>src\boilerplate\entity\shape</Filter>
+    </ClCompile>
+    <ClCompile Include="App.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.fx">
@@ -23,6 +45,24 @@
     <CLInclude Include="resource.h">
       <Filter>Resource Files</Filter>
     </CLInclude>
+    <ClInclude Include="fcolor.h">
+      <Filter>src\boilerplate\render</Filter>
+    </ClInclude>
+    <ClInclude Include="constant_buffer.h">
+      <Filter>src\boilerplate\render</Filter>
+    </ClInclude>
+    <ClInclude Include="simple_vertex.h">
+      <Filter>src\boilerplate\render</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>src\boilerplate\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="shape.h">
+      <Filter>src\boilerplate\entity\shape</Filter>
+    </ClInclude>
+    <ClInclude Include="circle.h">
+      <Filter>src\boilerplate\entity\shape</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

@@ -375,12 +375,20 @@
   <ItemGroup />
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="circle.cpp" />
+    <ClCompile Include="fcolor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.fx" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="circle.h" />
+    <ClInclude Include="constant_buffer.h" />
+    <ClInclude Include="entity.h" />
+    <ClInclude Include="fcolor.h" />
     <CLInclude Include="resource.h" />
+    <ClInclude Include="shape.h" />
+    <ClInclude Include="simple_vertex.h" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
