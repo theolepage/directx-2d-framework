@@ -10,6 +10,7 @@
 #include "simple_vertex.h"
 #include "entity.h"
 #include "circle.h"
+#include "tree.h"
 
 //--------------------------------------------------------------------------------------
 // Global Variables
@@ -294,9 +295,8 @@ HRESULT InitDevice()
 	/* TODO: Put here rendered objects declaration by adding them to the entity list "entities" */
 
 	//Example:
-	//entities.push_back(new Circle(0, 0, 1, 60, new FloatColor(255, 0, 255), g_pd3dDevice, bd, InitData));
-
-
+	entities.push_back(new Circle(0, 0, 1, 60, new FloatColor(255, 0, 255), g_pd3dDevice, bd, InitData));
+	entities.push_back(new Tree(0.46, -0.5, g_pd3dDevice, bd, InitData));
     
 	
 	// Fill in a buffer description.
@@ -374,10 +374,12 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam 
 void Render()
 {
 
-
     // Clear the back buffer 
     float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; // red,green,blue,alpha
     g_pImmediateContext->ClearRenderTargetView( g_pRenderTargetView, ClearColor );
+
+	g_pImmediateContext->VSSetShader(g_pVertexShader, NULL, 0);
+	g_pImmediateContext->PSSetShader(g_pPixelShader, NULL, 0);
 
 	// Set vertex buffer, setting the model
 	UINT stride = sizeof(SimpleVertex);

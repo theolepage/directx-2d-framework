@@ -30,6 +30,7 @@
       <Filter>boilerplate\entity\shape</Filter>
     </ClCompile>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="tree.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.fx">
@@ -58,6 +59,7 @@
     <ClInclude Include="circle.h">
       <Filter>boilerplate\entity\shape</Filter>
     </ClInclude>
+    <ClInclude Include="tree.h" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

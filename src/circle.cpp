@@ -18,7 +18,6 @@ Circle::Circle(double x,
 
 	vertices = new SimpleVertex[n_vertices];
 
-	//TODO: Make a proper circle declaration
 	GeneratePolygonVertices(vertices, res, radius, x, y, 0);
 
 	ZeroMemory(&bd, sizeof(bd));
