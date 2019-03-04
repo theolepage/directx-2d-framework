@@ -7,6 +7,10 @@ FloatColor::FloatColor(float r, float g, float b)
 	this->b = b;
 }
 
-FloatColor::FloatColor(int r, int g, int b) : FloatColor(r / 255.0f, g / 255.0f, b / 255.0f) {}
+FloatColor::FloatColor(int rgb) {
+	this->r = (rgb & 0xFF0000) >> 16;
+	this->g = (rgb & 0xFF00) >> 8;
+	this->b = rgb & 0xFF;
+}
 
 FloatColor::~FloatColor() {}

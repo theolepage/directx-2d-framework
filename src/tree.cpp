@@ -1,7 +1,7 @@
 #include "tree.h"
+
 Tree::Tree(double x, double y, ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd, D3D11_SUBRESOURCE_DATA& InitData)
 {
-	g_pVertexBuffer = NULL;
 
 	n_vertices = 6;
 	vertices = new SimpleVertex[n_vertices];
@@ -33,17 +33,17 @@ Tree::Tree(double x, double y, ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd
 Tree::~Tree()
 {}
 
-void Tree::Render(ID3D11DeviceContext* g_pImmediateContext, VS_CONSTANT_BUFFER& VsConstData, ID3D11Buffer* g_pConstantBuffer11, UINT* stride, UINT* offset)
+void Tree::Render(ID3D11DeviceContext* g_pImmediateContext, VS_CONSTANT_BUFFER& VsConstData, ID3D11Buffer* g_pConstantBuffer, UINT* stride, UINT* offset)
 {
 	VsConstData.pos_X = 0;
 	VsConstData.color_R = 0.50980;
 	VsConstData.color_G = 0.2117;
 	VsConstData.color_B = 0;
-	g_pImmediateContext->UpdateSubresource(g_pConstantBuffer11, 0, 0, &VsConstData, 0, 0);
+	g_pImmediateContext->UpdateSubresource(g_pConstantBuffer, 0, 0, &VsConstData, 0, 0);
 	g_pImmediateContext->IASetVertexBuffers(0, 1, &g_pVertexBuffer, stride, offset);
 	g_pImmediateContext->Draw(n_vertices, 0);
-	leave0->Render(g_pImmediateContext, VsConstData, g_pConstantBuffer11, stride, offset);
-	leave1->Render(g_pImmediateContext, VsConstData, g_pConstantBuffer11, stride, offset);
-	leave2->Render(g_pImmediateContext, VsConstData, g_pConstantBuffer11, stride, offset);
-	leave3->Render(g_pImmediateContext, VsConstData, g_pConstantBuffer11, stride, offset);
+	leave0->Render(g_pImmediateContext, VsConstData, g_pConstantBuffer, stride, offset);
+	leave1->Render(g_pImmediateContext, VsConstData, g_pConstantBuffer, stride, offset);
+	leave2->Render(g_pImmediateContext, VsConstData, g_pConstantBuffer, stride, offset);
+	leave3->Render(g_pImmediateContext, VsConstData, g_pConstantBuffer, stride, offset);
 }

@@ -295,7 +295,7 @@ HRESULT InitDevice()
 	/* TODO: Put here rendered objects declaration by adding them to the entity list "entities" */
 
 	//Example:
-	entities.push_back(new Circle(0, 0, 1, 60, new FloatColor(255, 0, 255), g_pd3dDevice, bd, InitData));
+	entities.push_back(new Circle(0, 0.5, 0.3, 60, new FloatColor(0xFF00FF), g_pd3dDevice, bd, InitData));
 	entities.push_back(new Tree(0.46, -0.5, g_pd3dDevice, bd, InitData));
     
 	
@@ -318,6 +318,9 @@ HRESULT InitDevice()
 
 	// Set primitive topology
 	g_pImmediateContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+
+	g_pImmediateContext->VSSetShader(g_pVertexShader, NULL, 0);
+	g_pImmediateContext->PSSetShader(g_pPixelShader, NULL, 0);
 
     return S_OK;
 }
@@ -374,12 +377,15 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam 
 void Render()
 {
 
+	g_pImmediateContext->UpdateSubresource(g_pConstantBuffer, 0, 0, &VsConstData, 0, 0);
+	g_pImmediateContext->VSSetConstantBuffers(0, 1, &g_pConstantBuffer);
+	g_pImmediateContext->PSSetConstantBuffers(0, 1, &g_pConstantBuffer);
+
     // Clear the back buffer 
     float ClearColor[4] = { 0.0f, 0.125f, 0.3f, 1.0f }; // red,green,blue,alpha
     g_pImmediateContext->ClearRenderTargetView( g_pRenderTargetView, ClearColor );
 
-	g_pImmediateContext->VSSetShader(g_pVertexShader, NULL, 0);
-	g_pImmediateContext->PSSetShader(g_pPixelShader, NULL, 0);
+	
 
 	// Set vertex buffer, setting the model
 	UINT stride = sizeof(SimpleVertex);
