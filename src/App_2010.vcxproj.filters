@@ -31,6 +31,9 @@
     </ClCompile>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="tree.cpp" />
+    <ClCompile Include="cycloid.cpp">
+      <Filter>boilerplate\entity\shape</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.fx">
@@ -60,6 +63,9 @@
       <Filter>boilerplate\entity\shape</Filter>
     </ClInclude>
     <ClInclude Include="tree.h" />
+    <ClInclude Include="cycloid.h">
+      <Filter>boilerplate\entity\shape</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>

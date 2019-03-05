@@ -11,6 +11,7 @@
 #include "entity.h"
 #include "circle.h"
 #include "tree.h"
+#include "cycloid.h"
 
 //--------------------------------------------------------------------------------------
 // Global Variables
@@ -295,9 +296,9 @@ HRESULT InitDevice()
 	/* TODO: Put here rendered objects declaration by adding them to the entity list "entities" */
 
 	//Example:
-	entities.push_back(new Circle(0, 0.5, 0.3, 60, new FloatColor(0xFF00FF), g_pd3dDevice, bd, InitData));
+	entities.push_back(new Cycloid(-0.6, 0.5, 0.3, 60, new FloatColor(0xffeb00), [](int i) {return i % 5 == 0; }, g_pd3dDevice, bd, InitData));
 	entities.push_back(new Tree(0.46, -0.5, g_pd3dDevice, bd, InitData));
-    
+	entities.push_back(new Circle(0.6, 0.5, 0.3, 100, new FloatColor(0xffebfe), g_pd3dDevice, bd, InitData));
 	
 	// Fill in a buffer description.
 	D3D11_BUFFER_DESC cbDesc;
