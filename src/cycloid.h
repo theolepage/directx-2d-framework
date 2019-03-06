@@ -5,7 +5,7 @@ class S2DCycloid :
 	public Shape
 {
 private:
-	void GeneratePolygonVertices(SimpleVertex* vertices, int sides, float radius, float centerX, float centerY, int arrayOffset, bool(*expr)(int));
+	void GeneratePolygonVertices(SimpleVertex* vertices, int sides, float radius, float centerX, float centerY, int arrayOffset, bool(*expr)(int), float(*radExpr)(float));
 public:
 	S2DCycloid(double,
 		double,
@@ -13,6 +13,7 @@ public:
 		int,
 		FloatColor*,
 		bool(*)(int),
+		float(*)(float),
 		ID3D11Device*,
 		D3D11_BUFFER_DESC&,
 		D3D11_SUBRESOURCE_DATA&);

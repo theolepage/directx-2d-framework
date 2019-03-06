@@ -296,7 +296,7 @@ HRESULT InitDevice()
 	/* TODO: Put here rendered objects declaration by adding them to the entity list "entities" */
 
 	//Example:
-	entities.push_back(new S2DCycloid(-0.6, 0.5, 0.3, 60, new FloatColor(0xffeb00), [](int i) {return i % 2 == 0; }, g_pd3dDevice, bd, InitData));
+	entities.push_back(new S2DCycloid(-0.6, 0.5, 0.3, 100, new FloatColor(0xffeb00), [](int i) {return true; }, [](float i) {return i * i / (2 * i); }, g_pd3dDevice, bd, InitData));
 	entities.push_back(new Tree(0.46, -0.5, g_pd3dDevice, bd, InitData));
 	entities.push_back(new S2DCircle(0.6, 0.5, 0.3, 100, new FloatColor(0xffebfe), g_pd3dDevice, bd, InitData));
 
