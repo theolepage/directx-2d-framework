@@ -1,23 +1,38 @@
 #pragma once
 #include "shape.h"
 
-class Cycloid :
+class S2DCycloid :
 	public Shape
 {
 private:
 	void GeneratePolygonVertices(SimpleVertex* vertices, int sides, float radius, float centerX, float centerY, int arrayOffset, bool(*expr)(int));
 public:
-	Cycloid(double x,
-		double y,
-		double r,
-		int res,
-		FloatColor* color,
-		bool(*expr)(int),
-		ID3D11Device* g_pd3dDevice,
-		D3D11_BUFFER_DESC& bd,
-		D3D11_SUBRESOURCE_DATA& InitData);
-	
-	void Render(ID3D11DeviceContext*, VS_CONSTANT_BUFFER&, ID3D11Buffer*, UINT*, UINT*);
-	~Cycloid();
+	S2DCycloid(double,
+		double,
+		double,
+		int,
+		FloatColor*,
+		bool(*)(int),
+		ID3D11Device*,
+		D3D11_BUFFER_DESC&,
+		D3D11_SUBRESOURCE_DATA&);
+	~S2DCycloid();
+};
+
+
+class S2DCircle : public S2DCycloid
+{
+public:
+
+	S2DCircle(double,
+		double,
+		double,
+		int,
+		FloatColor*,
+		ID3D11Device*,
+		D3D11_BUFFER_DESC&,
+		D3D11_SUBRESOURCE_DATA&);
+
+	~S2DCircle();
 };
 

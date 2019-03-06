@@ -14,5 +14,5 @@ protected:
 public:
 	Shape() {}
 	virtual ~Shape() {}
-	virtual void Render(ID3D11DeviceContext*, VS_CONSTANT_BUFFER&, ID3D11Buffer*, UINT*, UINT*) = 0;
+	virtual void Render(ID3D11DeviceContext*, VS_CONSTANT_BUFFER&, ID3D11Buffer*, UINT*, UINT*);
 };

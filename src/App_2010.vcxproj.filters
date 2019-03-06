@@ -26,12 +26,15 @@
     <ClCompile Include="fcolor.cpp">
       <Filter>boilerplate\render</Filter>
     </ClCompile>
-    <ClCompile Include="circle.cpp">
-      <Filter>boilerplate\entity\shape</Filter>
-    </ClCompile>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="tree.cpp" />
     <ClCompile Include="cycloid.cpp">
+      <Filter>boilerplate\entity\shape</Filter>
+    </ClCompile>
+    <ClCompile Include="quad.cpp">
+      <Filter>boilerplate\entity\shape</Filter>
+    </ClCompile>
+    <ClCompile Include="shape.cpp">
       <Filter>boilerplate\entity\shape</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,11 +62,11 @@
     <ClInclude Include="shape.h">
       <Filter>boilerplate\entity\shape</Filter>
     </ClInclude>
-    <ClInclude Include="circle.h">
-      <Filter>boilerplate\entity\shape</Filter>
-    </ClInclude>
     <ClInclude Include="tree.h" />
     <ClInclude Include="cycloid.h">
+      <Filter>boilerplate\entity\shape</Filter>
+    </ClInclude>
+    <ClInclude Include="quad.h">
       <Filter>boilerplate\entity\shape</Filter>
     </ClInclude>
   </ItemGroup>

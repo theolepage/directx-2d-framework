@@ -1,6 +1,6 @@
 #include "cycloid.h"
 
-Cycloid::Cycloid(double x,
+S2DCycloid::S2DCycloid(double x,
 	double y,
 	double radius,
 	int res,
@@ -14,6 +14,7 @@ Cycloid::Cycloid(double x,
 
 	n_vertices = res * 3;
 
+	//FIXME: We don't need that much vertices
 	vertices = new SimpleVertex[n_vertices];
 
 	GeneratePolygonVertices(vertices, res, radius, x, y, 0, expr);
@@ -28,7 +29,7 @@ Cycloid::Cycloid(double x,
 	g_pd3dDevice->CreateBuffer(&bd, &InitData, &g_pVertexBuffer);
 }
 
-void Cycloid::GeneratePolygonVertices(SimpleVertex* vertices, int sides, float radius, float centerX, float centerY, int arrayOffset, bool(*expr)(int))
+void S2DCycloid::GeneratePolygonVertices(SimpleVertex* vertices, int sides, float radius, float centerX, float centerY, int arrayOffset, bool(*expr)(int))
 {
 	float PI = 3.14159265358979323846;
 	int index = 0;
@@ -62,16 +63,19 @@ void Cycloid::GeneratePolygonVertices(SimpleVertex* vertices, int sides, float r
 	}
 }
 
-void Cycloid::Render(ID3D11DeviceContext* g_pImmediateContext, VS_CONSTANT_BUFFER& VsConstData, ID3D11Buffer* g_pConstantBuffer, UINT* stride, UINT* offset) {
-	VsConstData.color_R = color->r;
-	VsConstData.color_G = color->g;
-	VsConstData.color_B = color->b;
-	VsConstData.pos_X = 0;
-	g_pImmediateContext->UpdateSubresource(g_pConstantBuffer, 0, 0, &VsConstData, 0, 0);
-	g_pImmediateContext->IASetVertexBuffers(0, 1, &g_pVertexBuffer, stride, offset);
-	g_pImmediateContext->Draw(n_vertices, 0);
-}
 
-Cycloid::~Cycloid()
-{
-}
+S2DCycloid::~S2DCycloid(){}
+
+
+S2DCircle::S2DCircle(double x,
+	double y,
+	double radius,
+	int res,
+	FloatColor* color,
+	ID3D11Device* g_pd3dDevice,
+	D3D11_BUFFER_DESC& bd,
+	D3D11_SUBRESOURCE_DATA& InitData) : S2DCycloid(x, y, radius, res, color, [](int i) {return true; }, g_pd3dDevice, bd, InitData)
+{}
+
+
+S2DCircle::~S2DCircle() {}

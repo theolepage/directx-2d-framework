@@ -9,9 +9,9 @@
 #include "resource.h"
 #include "simple_vertex.h"
 #include "entity.h"
-#include "circle.h"
 #include "tree.h"
 #include "cycloid.h"
+#include "quad.h"
 
 //--------------------------------------------------------------------------------------
 // Global Variables
@@ -296,10 +296,14 @@ HRESULT InitDevice()
 	/* TODO: Put here rendered objects declaration by adding them to the entity list "entities" */
 
 	//Example:
-	entities.push_back(new Cycloid(-0.6, 0.5, 0.3, 60, new FloatColor(0xffeb00), [](int i) {return i % 5 == 0; }, g_pd3dDevice, bd, InitData));
+	entities.push_back(new S2DCycloid(-0.6, 0.5, 0.3, 60, new FloatColor(0xffeb00), [](int i) {return i % 2 == 0; }, g_pd3dDevice, bd, InitData));
 	entities.push_back(new Tree(0.46, -0.5, g_pd3dDevice, bd, InitData));
-	entities.push_back(new Circle(0.6, 0.5, 0.3, 100, new FloatColor(0xffebfe), g_pd3dDevice, bd, InitData));
-	
+	entities.push_back(new S2DCircle(0.6, 0.5, 0.3, 100, new FloatColor(0xffebfe), g_pd3dDevice, bd, InitData));
+
+	entities.push_back(new S2DRectangle(-0.5, -0.75, 0.5, 0.5, new FloatColor(0x794600), g_pd3dDevice, bd, InitData));
+	entities.push_back(new S2DDiamond(-0.5, -0.75, 0.5, 0.5, new FloatColor(0xd8b600), g_pd3dDevice, bd, InitData));
+
+
 	// Fill in a buffer description.
 	D3D11_BUFFER_DESC cbDesc;
 	ZeroMemory(&cbDesc, sizeof(cbDesc));
