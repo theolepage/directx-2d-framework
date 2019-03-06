@@ -2,7 +2,6 @@
 
 Tree::Tree(double x, double y, ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd, D3D11_SUBRESOURCE_DATA& InitData)
 {
-
 	n_vertices = 6;
 	vertices = new SimpleVertex[n_vertices];
 
@@ -22,11 +21,11 @@ Tree::Tree(double x, double y, ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd
 	InitData.pSysMem = vertices;
 	g_pd3dDevice->CreateBuffer(&bd, &InitData, &g_pVertexBuffer);
 
-	leave0 = new S2DCircle(x, y - 0.15, 0.2, 360, new FloatColor(0.0156, 0.5, 0), g_pd3dDevice, bd, InitData);
-	leave1 = new S2DCircle(x, y, 0.2, 360, new FloatColor(0.0156, 0.6, 0), g_pd3dDevice, bd, InitData);
-	leave2 = new S2DCircle(x, y + 0.15, 0.2, 360, new FloatColor(0.0156, 0.7, 0), g_pd3dDevice, bd, InitData);
-	leave3 = new S2DCircle(x, y + 0.30, 0.2, 360, new FloatColor(0.0156, 0.75, 0), g_pd3dDevice, bd, InitData);
-	leave4 = new S2DCircle(x, y + 0.45, 0.2, 360, new FloatColor(0.0156, 0.8, 0), g_pd3dDevice, bd, InitData);
+	leave0 = new S2DCircle(x, y - 0.15, 0.2, 360, new FloatColor(0.0156f, 0.5f, 0.0f), g_pd3dDevice, bd, InitData);
+	leave1 = new S2DCircle(x, y, 0.2, 360, new FloatColor(0.0156f, 0.6f, 0.0f), g_pd3dDevice, bd, InitData);
+	leave2 = new S2DCircle(x, y + 0.15, 0.2, 360, new FloatColor(0.0156f, 0.7f, 0.0f), g_pd3dDevice, bd, InitData);
+	leave3 = new S2DCircle(x, y + 0.30, 0.2, 360, new FloatColor(0.0156f, 0.75f, 0.0f), g_pd3dDevice, bd, InitData);
+	leave4 = new S2DCircle(x, y + 0.45, 0.2, 360, new FloatColor(0.0156f, 0.8f, 0.0f), g_pd3dDevice, bd, InitData);
 }
 
 

@@ -7,7 +7,7 @@ class Shape : public Entity
 {
 protected:
 	int n_vertices;
-	FloatColor *color;
+	FloatColor* color;
 	SimpleVertex *vertices;
 	ID3D11Buffer* g_pVertexBuffer;
 
