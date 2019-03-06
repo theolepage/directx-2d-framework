@@ -377,6 +377,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="cycloid.cpp" />
     <ClCompile Include="fcolor.cpp" />
+    <ClCompile Include="heart.cpp" />
     <ClCompile Include="quad.cpp" />
     <ClCompile Include="shape.cpp" />
     <ClCompile Include="tree.cpp" />
@@ -389,6 +390,7 @@
     <ClInclude Include="cycloid.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="fcolor.h" />
+    <ClInclude Include="heart.h" />
     <ClInclude Include="quad.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="shape.h" />

@@ -12,6 +12,7 @@
 #include "tree.h"
 #include "cycloid.h"
 #include "quad.h"
+#include "heart.h"
 
 //--------------------------------------------------------------------------------------
 // Global Variables
@@ -296,13 +297,15 @@ HRESULT InitDevice()
 	/* TODO: Put here rendered objects declaration by adding them to the entity list "entities" */
 
 	//Example:
-	entities.push_back(new S2DCycloid(-0.6, 0.5, 0.3, 100, new FloatColor(0xffeb00), [](int i) {return true; }, [](float i) {return i * i / (2 * i); }, g_pd3dDevice, bd, InitData));
+	entities.push_back(new S2DCycloid(-0.6, 0.5, 0.3, 100, new FloatColor(0xffeb00), [](int i) {return true; }, [](float i) {return (i * i / (2 * i)); }, g_pd3dDevice, bd, InitData));
 	entities.push_back(new Tree(0.46, -0.5, g_pd3dDevice, bd, InitData));
 	entities.push_back(new S2DCircle(0.6, 0.5, 0.3, 100, new FloatColor(0xffebfe), g_pd3dDevice, bd, InitData));
-
+	entities.push_back(new S2DCycloid(0.95, 0.5, 0.3, 100, new FloatColor(0xffffff), [](int i) {return true; }, [](float i) {return sin(i); }, g_pd3dDevice, bd, InitData));
+	entities.push_back(new S2DCycloid(0.25, 0.5, 0.3, 100, new FloatColor(0xffffff), [](int i) {return true; }, [](float i) {return sin(i + 3.14f); }, g_pd3dDevice, bd, InitData));
 	entities.push_back(new S2DRectangle(-0.5, -0.75, 0.5, 0.5, new FloatColor(0x794600), g_pd3dDevice, bd, InitData));
 	entities.push_back(new S2DDiamond(-0.5, -0.75, 0.5, 0.5, new FloatColor(0xd8b600), g_pd3dDevice, bd, InitData));
 
+	entities.push_back(new Heart(0, 0, 0.3, new FloatColor(0xff0000), g_pd3dDevice, bd, InitData));
 
 	// Fill in a buffer description.
 	D3D11_BUFFER_DESC cbDesc;

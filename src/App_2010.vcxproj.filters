@@ -27,7 +27,6 @@
       <Filter>boilerplate\render</Filter>
     </ClCompile>
     <ClCompile Include="App.cpp" />
-    <ClCompile Include="tree.cpp" />
     <ClCompile Include="cycloid.cpp">
       <Filter>boilerplate\entity\shape</Filter>
     </ClCompile>
@@ -36,6 +35,12 @@
     </ClCompile>
     <ClCompile Include="shape.cpp">
       <Filter>boilerplate\entity\shape</Filter>
+    </ClCompile>
+    <ClCompile Include="heart.cpp">
+      <Filter>boilerplate\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="tree.cpp">
+      <Filter>boilerplate\entity</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -62,12 +67,17 @@
     <ClInclude Include="shape.h">
       <Filter>boilerplate\entity\shape</Filter>
     </ClInclude>
-    <ClInclude Include="tree.h" />
     <ClInclude Include="cycloid.h">
       <Filter>boilerplate\entity\shape</Filter>
     </ClInclude>
     <ClInclude Include="quad.h">
       <Filter>boilerplate\entity\shape</Filter>
+    </ClInclude>
+    <ClInclude Include="heart.h">
+      <Filter>boilerplate\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="tree.h">
+      <Filter>boilerplate\entity</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
