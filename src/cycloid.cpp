@@ -13,9 +13,13 @@ S2DCycloid::S2DCycloid(double x,
 {
 	this->color = color;
 
-	n_vertices = res * 3;
+	n_vertices = 0;
 
-	//FIXME: We don't need that much vertices
+	/* Counting the space needed */
+	for (int i = 0; i <= res; ++i) {
+		n_vertices += expr(i) ? 3 : 0;
+	}
+
 	vertices = new SimpleVertex[n_vertices];
 
 	GeneratePolygonVertices(vertices, res, radius, x, y, 0, expr, radExpr);
@@ -37,13 +41,11 @@ void S2DCycloid::GeneratePolygonVertices(SimpleVertex* vertices, int sides, floa
 	float theta = PI / sides;
 
 	XMFLOAT3 last = XMFLOAT3(radExpr(theta) * radius * cos(theta) + centerX, radExpr(theta) * radius * sin(theta) + centerY, 0.5f);
-
-	for (int n = 1; n <= sides; n += 1)
-	{
+	for (int n = 1; n <= sides; ++n)
+	{	
 
 		float x = radExpr(n * theta) * radius * cos(theta + 2 * PI * n / sides) + centerX;
 		float y = radExpr(n * theta) * radius * sin(theta + 2 * PI * n / sides) + centerY;
-
 
 		SimpleVertex a = SimpleVertex();
 		SimpleVertex b = SimpleVertex();
@@ -53,14 +55,16 @@ void S2DCycloid::GeneratePolygonVertices(SimpleVertex* vertices, int sides, floa
 		b.Pos = last;
 		c.Pos = XMFLOAT3(centerX, centerY, 0.5f);
 		last = a.Pos;
-		
+
 		if (expr(n)) {
+
 			vertices[arrayOffset + index] = a;
 			vertices[arrayOffset + index + 1] = b;
 			vertices[arrayOffset + index + 2] = c;
+			index += 3;
 		}
 		
-		index += 3;
+		
 	}
 }
 
