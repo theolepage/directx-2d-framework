@@ -381,6 +381,7 @@
     <ClCompile Include="quad.cpp" />
     <ClCompile Include="shape.cpp" />
     <ClCompile Include="tree.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.fx" />
@@ -396,6 +397,7 @@
     <ClInclude Include="shape.h" />
     <ClInclude Include="simple_vertex.h" />
     <ClInclude Include="tree.h" />
+    <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
