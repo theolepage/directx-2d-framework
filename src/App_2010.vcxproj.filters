@@ -21,6 +21,9 @@
     <Filter Include="boilerplate\render">
       <UniqueIdentifier>{03626652-95a8-4226-acad-123ff012f4bc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="boilerplate\window">
+      <UniqueIdentifier>{66c3323c-ca58-43df-9d89-92131e466582}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fcolor.cpp">
@@ -31,6 +34,9 @@
     </ClCompile>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="tree.cpp" />
+    <ClCompile Include="window.cpp">
+      <Filter>boilerplate\window</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.fx">
@@ -60,6 +66,9 @@
       <Filter>boilerplate\entity\shape</Filter>
     </ClInclude>
     <ClInclude Include="tree.h" />
+    <ClInclude Include="window.h">
+      <Filter>boilerplate\window</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
