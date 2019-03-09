@@ -1,6 +1,8 @@
 #include "tree.h"
 
-Tree::Tree(double x, double y, ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd, D3D11_SUBRESOURCE_DATA& InitData)
+
+
+Tree::Tree(double x, double y)
 {
 	n_vertices = 6;
 	vertices = new SimpleVertex[n_vertices];
@@ -12,6 +14,15 @@ Tree::Tree(double x, double y, ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd
 	vertices[4].Pos = XMFLOAT3(x + 0.05f, y - 0.5f, 0);
 	vertices[5].Pos = XMFLOAT3(x - 0.05f, y - 0.5f, 0);
 
+	leave0 = new S2DCircle(x, y - 0.15, 0.2, 360, new FloatColor(0.0156f, 0.5f, 0.0f));
+	leave1 = new S2DCircle(x, y, 0.2, 360, new FloatColor(0.0156f, 0.6f, 0.0f));
+	leave2 = new S2DCircle(x, y + 0.15, 0.2, 360, new FloatColor(0.0156f, 0.7f, 0.0f));
+	leave3 = new S2DCircle(x, y + 0.30, 0.2, 360, new FloatColor(0.0156f, 0.75f, 0.0f));
+	leave4 = new S2DCircle(x, y + 0.45, 0.2, 360, new FloatColor(0.0156f, 0.8f, 0.0f));
+}
+
+void Tree::Register(ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd, D3D11_SUBRESOURCE_DATA& InitData)
+{
 	ZeroMemory(&bd, sizeof(bd));
 	bd.Usage = D3D11_USAGE_DEFAULT;
 	bd.ByteWidth = sizeof(SimpleVertex) * n_vertices;
@@ -21,16 +32,12 @@ Tree::Tree(double x, double y, ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd
 	InitData.pSysMem = vertices;
 	g_pd3dDevice->CreateBuffer(&bd, &InitData, &g_pVertexBuffer);
 
-	leave0 = new S2DCircle(x, y - 0.15, 0.2, 360, new FloatColor(0.0156f, 0.5f, 0.0f), g_pd3dDevice, bd, InitData);
-	leave1 = new S2DCircle(x, y, 0.2, 360, new FloatColor(0.0156f, 0.6f, 0.0f), g_pd3dDevice, bd, InitData);
-	leave2 = new S2DCircle(x, y + 0.15, 0.2, 360, new FloatColor(0.0156f, 0.7f, 0.0f), g_pd3dDevice, bd, InitData);
-	leave3 = new S2DCircle(x, y + 0.30, 0.2, 360, new FloatColor(0.0156f, 0.75f, 0.0f), g_pd3dDevice, bd, InitData);
-	leave4 = new S2DCircle(x, y + 0.45, 0.2, 360, new FloatColor(0.0156f, 0.8f, 0.0f), g_pd3dDevice, bd, InitData);
+	leave0->Register(g_pd3dDevice, bd, InitData);
+	leave1->Register(g_pd3dDevice, bd, InitData);
+	leave2->Register(g_pd3dDevice, bd, InitData);
+	leave3->Register(g_pd3dDevice, bd, InitData);
+	leave4->Register(g_pd3dDevice, bd, InitData);
 }
-
-
-Tree::~Tree()
-{}
 
 void Tree::Render(ID3D11DeviceContext* g_pImmediateContext, VS_CONSTANT_BUFFER& VsConstData, ID3D11Buffer* g_pConstantBuffer, UINT* stride, UINT* offset)
 {

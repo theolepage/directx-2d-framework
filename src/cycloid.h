@@ -1,6 +1,8 @@
 #pragma once
 #include "shape.h"
 
+
+
 class S2DCycloid :
 	public Shape
 {
@@ -13,11 +15,7 @@ public:
 		int,
 		FloatColor*,
 		bool(*)(int),
-		float(*)(float),
-		ID3D11Device*,
-		D3D11_BUFFER_DESC&,
-		D3D11_SUBRESOURCE_DATA&);
-	~S2DCycloid();
+		float(*)(float));
 };
 
 
@@ -29,11 +27,6 @@ public:
 		double,
 		double,
 		int,
-		FloatColor*,
-		ID3D11Device*,
-		D3D11_BUFFER_DESC&,
-		D3D11_SUBRESOURCE_DATA&);
-
-	~S2DCircle();
+		FloatColor*);
 };
 

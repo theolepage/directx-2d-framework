@@ -14,8 +14,7 @@
 class Window
 {
 public:
-	Window(LPCWSTR title, int width, int height);
-	~Window();
+	Window(LPCWSTR title, int width, int height, FloatColor* background);
 	int Start(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow);
 	void addEntity(Entity *entity);
 
@@ -24,7 +23,7 @@ public:
 	LPCWSTR title;
 	int width;
 	int height;
-	float background[4];
+	FloatColor* background;
 
 private:
 	HINSTANCE               g_hInst = NULL;

@@ -6,10 +6,7 @@ S2DCycloid::S2DCycloid(double x,
 	int res,
 	FloatColor* color,
 	bool(*expr)(int),
-	float(*radExpr)(float),
-	ID3D11Device* g_pd3dDevice,
-	D3D11_BUFFER_DESC& bd,
-	D3D11_SUBRESOURCE_DATA& InitData)
+	float(*radExpr)(float))
 {
 	this->color = color;
 
@@ -23,15 +20,6 @@ S2DCycloid::S2DCycloid(double x,
 	vertices = new SimpleVertex[n_vertices];
 
 	GeneratePolygonVertices(vertices, res, radius, x, y, 0, expr, radExpr);
-
-	ZeroMemory(&bd, sizeof(bd));
-	bd.Usage = D3D11_USAGE_DEFAULT;
-	bd.ByteWidth = sizeof(SimpleVertex) * n_vertices;
-	bd.BindFlags = D3D11_BIND_VERTEX_BUFFER;
-	bd.CPUAccessFlags = 0;
-	ZeroMemory(&InitData, sizeof(InitData));
-	InitData.pSysMem = vertices;
-	g_pd3dDevice->CreateBuffer(&bd, &InitData, &g_pVertexBuffer);
 }
 
 void S2DCycloid::GeneratePolygonVertices(SimpleVertex* vertices, int sides, float radius, float centerX, float centerY, int arrayOffset, bool(*expr)(int), float(*radExpr)(float))
@@ -69,18 +57,9 @@ void S2DCycloid::GeneratePolygonVertices(SimpleVertex* vertices, int sides, floa
 }
 
 
-S2DCycloid::~S2DCycloid(){}
-
-
 S2DCircle::S2DCircle(double x,
 	double y,
 	double radius,
 	int res,
-	FloatColor* color,
-	ID3D11Device* g_pd3dDevice,
-	D3D11_BUFFER_DESC& bd,
-	D3D11_SUBRESOURCE_DATA& InitData) : S2DCycloid(x, y, radius, res, color, [](int i) {return true; }, [](float i) {return 1.0f;}, g_pd3dDevice, bd, InitData)
+	FloatColor* color) : S2DCycloid(x, y, radius, res, color, [](int i) {return true; }, [](float i) {return 1.0f;})
 {}
-
-
-S2DCircle::~S2DCircle() {}

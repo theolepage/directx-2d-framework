@@ -5,9 +5,7 @@
 #include <d3dcompiler.h>
 #include <xnamath.h>
 
-
 #include "window.h"
-
 #include "entity.h"
 #include "tree.h"
 #include "cycloid.h"
@@ -18,10 +16,10 @@
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
-  Window w = Window(L"Hello world", 640, 480);
-  
-	//w.addEntity(new Circle(0, 0.5, 0.3, 60, new FloatColor(0xFF00FF));
-	//w.addEntity(((*Entity) (new Tree(0.46, -0.5)));
+	Window window = Window(L"Hello world", 640, 600, new FloatColor(0xb5d1ff));
 
-	return w.Start(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
+	window.addEntity(new S2DCircle(-0.6, 0.6, 0.2, 100, new FloatColor(0xffe7b4)));
+	window.addEntity(new Tree(0.46, -0.5));
+
+	return window.Start(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 }

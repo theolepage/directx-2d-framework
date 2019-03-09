@@ -10,20 +10,14 @@
 #include "simple_vertex.h"
 #include "constant_buffer.h"
 
-#include "tree.h"
-
-Window::Window(LPCWSTR _title, int _width, int _height)
+Window::Window(LPCWSTR _title, int _width, int _height, FloatColor* _background)
 {
 	title = _title;
 	width = _width;
 	height = _height;
-	//background = _background;
+	background = _background;
 }
 
-
-Window::~Window()
-{
-}
 
 void Window::addEntity(Entity *entity)
 {
@@ -299,6 +293,15 @@ HRESULT Window::InitDevice()
 	ZeroMemory(&bd, sizeof(bd));
 	ZeroMemory(&InitData, sizeof(InitData));
 
+
+	// Register FOR ALL ENTITIES
+	for (auto const& i : entities) {
+		i->Register(g_pd3dDevice, bd, InitData);
+	}
+
+
+
+
 	// Fill in a buffer description.
 	D3D11_BUFFER_DESC cbDesc;
 	ZeroMemory(&cbDesc, sizeof(cbDesc));
@@ -353,8 +356,9 @@ void Window::Render()
 	g_pImmediateContext->VSSetConstantBuffers(0, 1, &g_pConstantBuffer);
 	g_pImmediateContext->PSSetConstantBuffers(0, 1, &g_pConstantBuffer);
 
-	// Clear the back buffer 
-	g_pImmediateContext->ClearRenderTargetView(g_pRenderTargetView, background);
+	// Clear the back buffer
+	float ClearColor[4] = { background->r, background->g, background->b, 1.0f }; // red,green,blue,alpha
+	g_pImmediateContext->ClearRenderTargetView(g_pRenderTargetView, ClearColor);
 
 
 
