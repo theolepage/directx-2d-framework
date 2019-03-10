@@ -8,6 +8,7 @@ S2DQuad::S2DQuad(double x1, double y1,
 {
 	this->color = color;
 
+
 	n_vertices = 6;
 	vertices = new SimpleVertex[n_vertices];
 
@@ -40,3 +41,14 @@ S2DDiamond::S2DDiamond(double x,
 											x - width / 2.0, y,
 											x, y + height / 2.0,
 											color){}
+
+S2DLine::S2DLine(double x1, double y1,
+	double x2, double y2,
+	double width, FloatColor *color) : S2DQuad(x1 - width / 2.0, y1,
+		x1 + width / 2.0, y1,
+		x2 - width / 2.0, y2,
+		x2 + width / 2.0, y2,
+		color) {
+	this->x1 = x2;
+	this->y1 = y2;
+}

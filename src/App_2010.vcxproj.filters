@@ -24,6 +24,9 @@
     <Filter Include="boilerplate\window">
       <UniqueIdentifier>{66c3323c-ca58-43df-9d89-92131e466582}</UniqueIdentifier>
     </Filter>
+    <Filter Include="boilerplate\entity\tree">
+      <UniqueIdentifier>{f27db2ea-ae2e-4292-ab90-fb66d424c69e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fcolor.cpp">
@@ -42,13 +45,21 @@
     <ClCompile Include="heart.cpp">
       <Filter>boilerplate\entity</Filter>
     </ClCompile>
-    <ClCompile Include="tree.cpp">
-      <Filter>boilerplate\entity</Filter>
-    </ClCompile>
     <ClCompile Include="App.cpp" />
-    <ClCompile Include="tree.cpp" />
     <ClCompile Include="window.cpp">
       <Filter>boilerplate\window</Filter>
+    </ClCompile>
+    <ClCompile Include="tree.cpp">
+      <Filter>boilerplate\entity\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="flower.cpp">
+      <Filter>boilerplate\entity\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="bush.cpp">
+      <Filter>boilerplate\entity\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="tree.cpp">
+      <Filter>boilerplate\entity\tree</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -84,11 +95,17 @@
     <ClInclude Include="heart.h">
       <Filter>boilerplate\entity</Filter>
     </ClInclude>
-    <ClInclude Include="tree.h">
-      <Filter>boilerplate\entity</Filter>
-    </ClInclude>
     <ClInclude Include="window.h">
       <Filter>boilerplate\window</Filter>
+    </ClInclude>
+    <ClInclude Include="tree.h">
+      <Filter>boilerplate\entity\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="flower.h">
+      <Filter>boilerplate\entity\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="bush.h">
+      <Filter>boilerplate\entity\tree</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

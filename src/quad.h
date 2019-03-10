@@ -35,3 +35,10 @@ public:
 		FloatColor*);
 };
 
+class S2DLine : public S2DQuad
+{
+public:
+	double x1, y1;
+	S2DLine(double, double, double, double, double, FloatColor*);
+};
+
