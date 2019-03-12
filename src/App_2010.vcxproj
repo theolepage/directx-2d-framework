@@ -377,6 +377,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="bush.cpp" />
     <ClCompile Include="cycloid.cpp" />
+    <ClCompile Include="event.cpp" />
     <ClCompile Include="fcolor.cpp" />
     <ClCompile Include="flower.cpp" />
     <ClCompile Include="heart.cpp" />
@@ -393,6 +394,7 @@
     <ClInclude Include="constant_buffer.h" />
     <ClInclude Include="cycloid.h" />
     <ClInclude Include="entity.h" />
+    <ClInclude Include="event.h" />
     <ClInclude Include="fcolor.h" />
     <ClInclude Include="flower.h" />
     <ClInclude Include="heart.h" />
