@@ -326,6 +326,7 @@ HRESULT Window::InitDevice()
 	// Set primitive topology
 	g_pImmediateContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
+	//Set shaders
 	g_pImmediateContext->VSSetShader(g_pVertexShader, NULL, 0);
 	g_pImmediateContext->PSSetShader(g_pPixelShader, NULL, 0);
 
@@ -370,9 +371,15 @@ void Window::Render()
 	UINT stride = sizeof(SimpleVertex);
 	UINT offset = 0;
 
+	// Render all entities
 	for (auto const& i : entities) {
 		i->Render(g_pImmediateContext, VsConstData, g_pConstantBuffer, &stride, &offset);
 	}
 	// Present the information rendered to the back buffer to the front buffer (the screen)
 	g_pSwapChain->Present(0, 0);
+}
+
+
+void Window::addEvent(Event *event) {
+	eventHandler->addEvent(event);
 }

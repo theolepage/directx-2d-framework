@@ -8,10 +8,9 @@ class Shape : public Entity
 {
 protected:
 	int n_vertices;
-	FloatColor* color;
 	SimpleVertex *vertices;
 	ID3D11Buffer* g_pVertexBuffer;
-
+	FloatColor* color;
 public:
 	Shape() {}
 	virtual ~Shape() {}

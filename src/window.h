@@ -26,7 +26,7 @@ public:
 	int width;
 	int height;
 	FloatColor* background;
-
+	void addEvent(Event*);
 private:
 	HINSTANCE               g_hInst = NULL;
 	HWND                    g_hWnd = NULL;

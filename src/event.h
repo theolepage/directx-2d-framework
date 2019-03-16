@@ -2,6 +2,7 @@
 #include <map>
 #include <list>
 #include <windows.h>
+#include <windowsx.h>
 
 typedef unsigned int UINT;
 
@@ -12,7 +13,7 @@ protected:
 public:
 	Event(){}
 	~Event(){}
-	virtual UINT getType() = 0;
+	virtual UINT getType();
 };
 
 class OnCharEvent :
@@ -102,8 +103,8 @@ private:
 
 	void OnChar(HWND, UINT, int);
 	void OnLBD(HWND, BOOL, int, int, UINT);
-	void OnRBD(HWND, BOOL, int, int, UINT);
 	void OnLBU(HWND, int, int, UINT);
+	void OnRBD(HWND, BOOL, int, int, UINT);
 	void OnRBU(HWND, int, int, UINT);
 	void OnMM(HWND, int, int, UINT);
 	void OnKeyUp(HWND, UINT, BOOL, int, UINT);

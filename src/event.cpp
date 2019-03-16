@@ -41,30 +41,14 @@ LRESULT EventHandler::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 	
 	switch (message)
 	{
-	case WM_CHAR:
-		//OnChar(hWnd, reinterpret_cast<UINT>(wParam), (int)lParam);
-		break;
-	case WM_LBUTTONDOWN:
-		//OnLBD(hWnd);
-		break;
-	case WM_LBUTTONUP:
-		//OnLBU();
-		break;
-	case WM_MOUSEMOVE:
-		//OnMM();
-		break;
-	case WM_KEYDOWN:
-		//OnKD();
-		break;
-	case WM_KEYUP:
-		//OnKU();
-		break;
-	case WM_RBUTTONUP:
-		//OnRBU(hWnd);
-		break;
-	case WM_RBUTTONDOWN:
-		//OnRBD(hWnd);
-		break;
+		HANDLE_MSG(hWnd, WM_CHAR, OnChar);
+		HANDLE_MSG(hWnd, WM_LBUTTONDOWN, OnLBD);
+		HANDLE_MSG(hWnd, WM_LBUTTONUP, OnLBU);
+		HANDLE_MSG(hWnd, WM_RBUTTONDOWN, OnRBD);
+		HANDLE_MSG(hWnd, WM_RBUTTONUP, OnRBU);
+		HANDLE_MSG(hWnd, WM_MOUSEMOVE, OnMM);
+		HANDLE_MSG(hWnd, WM_KEYDOWN, OnKeyDown);
+		HANDLE_MSG(hWnd, WM_KEYUP, OnKeyUp);
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
