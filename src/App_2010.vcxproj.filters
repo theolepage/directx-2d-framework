@@ -27,6 +27,9 @@
     <Filter Include="boilerplate\entity\tree">
       <UniqueIdentifier>{f27db2ea-ae2e-4292-ab90-fb66d424c69e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="boilerplate\window\event">
+      <UniqueIdentifier>{44e522f8-c745-4c7d-9743-d04390d1c766}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fcolor.cpp">
@@ -60,6 +63,9 @@
     </ClCompile>
     <ClCompile Include="tree.cpp">
       <Filter>boilerplate\entity\tree</Filter>
+    </ClCompile>
+    <ClCompile Include="event.cpp">
+      <Filter>boilerplate\window\event</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="bush.h">
       <Filter>boilerplate\entity\tree</Filter>
+    </ClInclude>
+    <ClInclude Include="event.h">
+      <Filter>boilerplate\window\event</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

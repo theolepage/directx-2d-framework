@@ -14,7 +14,7 @@
 #include "heart.h"
 #include "bush.h"
 
-
+double dx = 0;
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {

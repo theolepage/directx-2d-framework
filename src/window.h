@@ -7,8 +7,9 @@
 #include "resource.h"
 #include "simple_vertex.h"
 #include "constant_buffer.h"
-
-#include "tree.h"
+#include "event.h"
+#include "entity.h"
+#include "fcolor.h"
 
 #pragma once
 class Window
@@ -18,13 +19,14 @@ public:
 	int Start(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow);
 	void addEntity(Entity *entity);
 
-	ID3D11Device*           g_pd3dDevice = NULL;
+	ID3D11Device *g_pd3dDevice = NULL;
+	EventHandler *eventHandler;
 
 	LPCWSTR title;
 	int width;
 	int height;
 	FloatColor* background;
-
+	void addEvent(Event*);
 private:
 	HINSTANCE               g_hInst = NULL;
 	HWND                    g_hWnd = NULL;
@@ -40,7 +42,7 @@ private:
 	ID3D11Buffer*			g_pConstantBuffer = NULL;
 
 	std::list <Entity*>		entities;
-	VS_CONSTANT_BUFFER		VsConstData;
+	VS_CONSTANT_BUFFER VsConstData;
 
 	HRESULT InitWindow(HINSTANCE hInstance, int nCmdShow);
 	HRESULT InitDevice();

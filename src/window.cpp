@@ -9,6 +9,7 @@
 #include "resource.h"
 #include "simple_vertex.h"
 #include "constant_buffer.h"
+#include "event.h"
 
 Window::Window(LPCWSTR _title, int _width, int _height, FloatColor* _background)
 {
@@ -16,6 +17,8 @@ Window::Window(LPCWSTR _title, int _width, int _height, FloatColor* _background)
 	width = _width;
 	height = _height;
 	background = _background;
+
+	eventHandler = new EventHandler();
 }
 
 
@@ -63,25 +66,26 @@ int Window::Start(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine
 //--------------------------------------------------------------------------------------
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	PAINTSTRUCT ps;
-	HDC hdc;
+	Window* wInstance;
 
-	switch (message)
-	{
-	case WM_PAINT:
-		hdc = BeginPaint(hWnd, &ps);
-		EndPaint(hWnd, &ps);
-		break;
-
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		break;
-
-	default:
-		return DefWindowProc(hWnd, message, wParam, lParam);
+	if (message == WM_NCCREATE) {
+		LPCREATESTRUCT lpcs = reinterpret_cast<LPCREATESTRUCT>(lParam);
+		wInstance = static_cast<Window*>(lpcs->lpCreateParams);
+		// Put the value in a safe place for future use
+		SetWindowLongPtr(hWnd, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(wInstance));
+	}
+	else {
+		// Recover the "this" pointer from where our WM_NCCREATE handler stashed it.
+		wInstance = reinterpret_cast<Window*>(GetWindowLongPtr(hWnd, GWLP_USERDATA));
 	}
 
-	return 0;
+	if (wInstance) {
+		// Now that we have recovered our "this" pointer, let the
+		// member function finish the job.
+		return wInstance->eventHandler->WndProc(hWnd, message, wParam, lParam);
+	}
+
+	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
 //--------------------------------------------------------------------------------------
@@ -113,7 +117,7 @@ HRESULT Window::InitWindow(HINSTANCE hInstance, int nCmdShow)
 	g_hWnd = CreateWindow(L"BoilerplateWindowClass", title,
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT, rc.right - rc.left, rc.bottom - rc.top, NULL, NULL, hInstance,
-		NULL);
+		this);
 	if (!g_hWnd)
 		return E_FAIL;
 
@@ -322,6 +326,7 @@ HRESULT Window::InitDevice()
 	// Set primitive topology
 	g_pImmediateContext->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 
+	//Set shaders
 	g_pImmediateContext->VSSetShader(g_pVertexShader, NULL, 0);
 	g_pImmediateContext->PSSetShader(g_pPixelShader, NULL, 0);
 
@@ -366,9 +371,15 @@ void Window::Render()
 	UINT stride = sizeof(SimpleVertex);
 	UINT offset = 0;
 
+	// Render all entities
 	for (auto const& i : entities) {
 		i->Render(g_pImmediateContext, VsConstData, g_pConstantBuffer, &stride, &offset);
 	}
 	// Present the information rendered to the back buffer to the front buffer (the screen)
 	g_pSwapChain->Present(0, 0);
+}
+
+
+void Window::addEvent(Event *event) {
+	eventHandler->addEvent(event);
 }
