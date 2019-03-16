@@ -12,18 +12,18 @@ Flower::Flower(double x, double y, double radius, FloatColor* heartColor, FloatC
 {
 }
 
+//--------------------------------------------------------------------------------------
+// Register all components of the flower (Heart and petals)
+//--------------------------------------------------------------------------------------
 void Flower::Register(ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd, D3D11_SUBRESOURCE_DATA& InitData)
 {
 	petals->Register(g_pd3dDevice, bd, InitData);
 	heart->Register(g_pd3dDevice, bd, InitData);
 }
 
-
-Flower::~Flower()
-{
-}
-
-
+//--------------------------------------------------------------------------------------
+// Render the flower's components in the correct order (heart should appear above)
+//--------------------------------------------------------------------------------------
 void Flower::Render(ID3D11DeviceContext* g_pImmediateContext, VS_CONSTANT_BUFFER& VsConstData, ID3D11Buffer* g_pConstantBuffer, UINT* stride, UINT* offset)
 {
 	petals->Render(g_pImmediateContext, VsConstData, g_pConstantBuffer, stride, offset);

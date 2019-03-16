@@ -7,7 +7,7 @@ public:
 	FloatColor(float, float, float);
 	FloatColor(int, int, int);
 	FloatColor(int);
-	~FloatColor();
+	~FloatColor() {}
 	int toRGB() const;
 
 	static const FloatColor Black,

@@ -21,20 +21,27 @@ Window::Window(LPCWSTR _title, int _width, int _height, FloatColor* _background)
 	eventHandler = new EventHandler();
 }
 
-
+//--------------------------------------------------------------------------------------
+// Add a new entity to the list of entity to be rendered.
+//--------------------------------------------------------------------------------------
 void Window::addEntity(Entity *entity)
 {
 	entities.push_back(entity);
 }
 
+//--------------------------------------------------------------------------------------
+// Start the window and launch the main loop.
+//--------------------------------------------------------------------------------------
 int Window::Start(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
+	// Initialize the window
 	if (FAILED(InitWindow(hInstance, nCmdShow)))
 		return 0;
 
+	// Initialize the device
 	if (FAILED(InitDevice()))
 	{
 		CleanupDevice();
@@ -304,8 +311,6 @@ HRESULT Window::InitDevice()
 	}
 
 
-
-
 	// Fill in a buffer description.
 	D3D11_BUFFER_DESC cbDesc;
 	ZeroMemory(&cbDesc, sizeof(cbDesc));
@@ -379,7 +384,9 @@ void Window::Render()
 	g_pSwapChain->Present(0, 0);
 }
 
-
+//--------------------------------------------------------------------------------------
+// Function to add an event to the window's event handler
+//--------------------------------------------------------------------------------------
 void Window::addEvent(Event *event) {
 	eventHandler->addEvent(event);
 }

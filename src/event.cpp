@@ -1,9 +1,10 @@
 #include "event.h"
 
-EventHandler::EventHandler()
-{
-}
+EventHandler::EventHandler() {}
 
+//--------------------------------------------------------------------------------------
+// Determine the kind of event passed in parameter and store it in the correct list
+//--------------------------------------------------------------------------------------
 void EventHandler::addEvent(Event *event) {
 	switch (event->getType())
 	{
@@ -36,9 +37,11 @@ void EventHandler::addEvent(Event *event) {
 	}
 }
 
+//--------------------------------------------------------------------------------------
+// Handle every supported types of messages and accordingly execute events.
+//--------------------------------------------------------------------------------------
 LRESULT EventHandler::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	
 	switch (message)
 	{
 		HANDLE_MSG(hWnd, WM_CHAR, OnChar);
@@ -59,6 +62,9 @@ LRESULT EventHandler::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPa
 	return 0;
 }
 
+//--------------------------------------------------------------------------------------
+// Execute all events requested by a typed character.
+//--------------------------------------------------------------------------------------
 void EventHandler::OnChar(HWND hwnd, UINT ch, int cRepeat)
 {
 	for (auto const& e : onCharEvents) {
@@ -66,6 +72,9 @@ void EventHandler::OnChar(HWND hwnd, UINT ch, int cRepeat)
 	}
 }
 
+//--------------------------------------------------------------------------------------
+// Execute all events requested by a left mouse button down.
+//--------------------------------------------------------------------------------------
 void EventHandler::OnLBD(HWND hwnd, BOOL fDoubleClick, int x, int y, UINT keyFlags)
 {
 	for (auto const& e : onLBDEvents) {
@@ -73,6 +82,9 @@ void EventHandler::OnLBD(HWND hwnd, BOOL fDoubleClick, int x, int y, UINT keyFla
 	}
 }
 
+//--------------------------------------------------------------------------------------
+// Execute all events requested by a left mouse button up.
+//--------------------------------------------------------------------------------------
 void EventHandler::OnLBU(HWND hwnd, int x, int y, UINT keyFlags)
 {
 	for (auto const& e : onLBUEvents) {
@@ -80,6 +92,9 @@ void EventHandler::OnLBU(HWND hwnd, int x, int y, UINT keyFlags)
 	}
 }
 
+//--------------------------------------------------------------------------------------
+// Execute all events requested by a right mouse button down.
+//--------------------------------------------------------------------------------------
 void EventHandler::OnRBD(HWND hwnd, BOOL fDoubleClick, int x, int y, UINT keyFlags)
 {
 	for (auto const& e : onRBDEvents) {
@@ -87,6 +102,9 @@ void EventHandler::OnRBD(HWND hwnd, BOOL fDoubleClick, int x, int y, UINT keyFla
 	}
 }
 
+//--------------------------------------------------------------------------------------
+// Execute all events requested by a right mouse button up.
+//--------------------------------------------------------------------------------------
 void EventHandler::OnRBU(HWND hwnd, int x, int y, UINT keyFlags)
 {
 	for (auto const& e : onRBUEvents) {
@@ -94,12 +112,19 @@ void EventHandler::OnRBU(HWND hwnd, int x, int y, UINT keyFlags)
 	}
 }
 
+//--------------------------------------------------------------------------------------
+// Execute all events requested by a mouse movement.
+//--------------------------------------------------------------------------------------
 void EventHandler::OnMM(HWND hwnd, int x, int y, UINT keyFlags)
 {
 	for (auto const& e : onMMEvents) {
 		e->expr(hwnd, x, y, keyFlags);
 	}
 }
+
+//--------------------------------------------------------------------------------------
+// Execute all events requested by a key down.
+//--------------------------------------------------------------------------------------
 void EventHandler::OnKeyDown(HWND hwnd, UINT vk, BOOL fDown, int cRepeat, UINT flags)
 {
 	for (auto const& e : onKeyDownEvents) {
@@ -107,6 +132,9 @@ void EventHandler::OnKeyDown(HWND hwnd, UINT vk, BOOL fDown, int cRepeat, UINT f
 	}
 }
 
+//--------------------------------------------------------------------------------------
+// Execute all events requested by a key up.
+//--------------------------------------------------------------------------------------
 void EventHandler::OnKeyUp(HWND hwnd, UINT vk, BOOL fDown, int cRepeat, UINT flags)
 {
 	for (auto const& e : onKeyUpEvents) {
@@ -114,6 +142,9 @@ void EventHandler::OnKeyUp(HWND hwnd, UINT vk, BOOL fDown, int cRepeat, UINT fla
 	}
 }
 
+//--------------------------------------------------------------------------------------
+// Return the type of an event.
+//--------------------------------------------------------------------------------------
 UINT Event::getType() {
 	return type;
 }
@@ -122,7 +153,6 @@ OnCharEvent::OnCharEvent(void(*expr)(HWND, UINT, int)) {
 	type = WM_CHAR;
 	this->expr = expr;
 }
-
 
 OnLBDEvent::OnLBDEvent(void(*expr)(HWND, BOOL, int, int, UINT)) {
 	type = WM_LBUTTONDOWN;

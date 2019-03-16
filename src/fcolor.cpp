@@ -35,9 +35,10 @@ FloatColor::FloatColor(int rgb) {
 	this->b = (rgb & 0xFF) / 255.0;
 }
 
+//--------------------------------------------------------------------------------------
+// Return the RGB code of a FloatColor object.
+//--------------------------------------------------------------------------------------
 int FloatColor::toRGB() const
 {
 	return ((255 * (int)r) << 16) | ((255 * (int)g) << 8) | (255 * (int)b);
 }
-
-FloatColor::~FloatColor() {}

@@ -8,7 +8,6 @@ S2DQuad::S2DQuad(double x1, double y1,
 {
 	this->color = color;
 
-
 	n_vertices = 6;
 	vertices = new SimpleVertex[n_vertices];
 

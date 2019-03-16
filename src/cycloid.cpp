@@ -12,7 +12,7 @@ S2DCycloid::S2DCycloid(double x,
 
 	n_vertices = 0;
 
-	/* Counting the space needed */
+	// Counting the space needed
 	for (int i = 0; i <= res; ++i) {
 		n_vertices += expr(i) ? 3 : 0;
 	}
@@ -22,6 +22,9 @@ S2DCycloid::S2DCycloid(double x,
 	GeneratePolygonVertices(vertices, res, radius, x, y, 0, expr, radExpr);
 }
 
+//--------------------------------------------------------------------------------------
+// Function to generate the vertices around the center
+//--------------------------------------------------------------------------------------
 void S2DCycloid::GeneratePolygonVertices(SimpleVertex* vertices, int sides, float radius, float centerX, float centerY, int arrayOffset, bool(*expr)(int), float(*radExpr)(float))
 {
 	float PI = 3.14159265358979323846;
@@ -55,7 +58,6 @@ void S2DCycloid::GeneratePolygonVertices(SimpleVertex* vertices, int sides, floa
 		
 	}
 }
-
 
 S2DCircle::S2DCircle(double x,
 	double y,

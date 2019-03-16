@@ -1,4 +1,3 @@
-#include <list>
 #include <windows.h>
 #include <d3d11.h>
 #include <d3dx11.h>
@@ -7,18 +6,11 @@
 #include <ctime>
 
 #include "window.h"
-#include "entity.h"
 #include "tree.h"
 #include "cycloid.h"
-#include "quad.h"
-#include "heart.h"
-#include "bush.h"
-
-double dx = 0;
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
-
 	srand(time(NULL));
 	Window window = Window(L"Hello world", 640, 600, new FloatColor(0xb5d1ff));
 

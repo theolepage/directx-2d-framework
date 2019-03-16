@@ -1,7 +1,8 @@
 #include "shape.h"
 
-
-
+//--------------------------------------------------------------------------------------
+// Create the vertex buffer of a shape.
+//--------------------------------------------------------------------------------------
 void Shape::Register(ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd, D3D11_SUBRESOURCE_DATA& InitData)
 {
 	ZeroMemory(&bd, sizeof(bd));
@@ -14,6 +15,9 @@ void Shape::Register(ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd, D3D11_SU
 	g_pd3dDevice->CreateBuffer(&bd, &InitData, &g_pVertexBuffer);
 }
 
+//--------------------------------------------------------------------------------------
+// Set the colors and render the shape.
+//--------------------------------------------------------------------------------------
 void Shape::Render(ID3D11DeviceContext* g_pImmediateContext, VS_CONSTANT_BUFFER& VsConstData, ID3D11Buffer* g_pConstantBuffer, UINT* stride, UINT* offset) {
 	VsConstData.color_R = color->r;
 	VsConstData.color_G = color->g;
