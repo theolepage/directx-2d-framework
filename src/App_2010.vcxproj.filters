@@ -18,9 +18,6 @@
     <Filter Include="framework\entity\shape">
       <UniqueIdentifier>{bee95eac-ea57-403e-bff3-568b5e87f236}</UniqueIdentifier>
     </Filter>
-    <Filter Include="framework\entity\tree">
-      <UniqueIdentifier>{f27db2ea-ae2e-4292-ab90-fb66d424c69e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="framework\render">
       <UniqueIdentifier>{03626652-95a8-4226-acad-123ff012f4bc}</UniqueIdentifier>
     </Filter>
@@ -30,8 +27,17 @@
     <Filter Include="framework\window\event">
       <UniqueIdentifier>{44e522f8-c745-4c7d-9743-d04390d1c766}</UniqueIdentifier>
     </Filter>
-    <Filter Include="framework\entity\car">
+    <Filter Include="framework\entity\demo">
+      <UniqueIdentifier>{5d690ed4-cd25-4799-8190-7748089270ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\entity\demo\tree">
+      <UniqueIdentifier>{f27db2ea-ae2e-4292-ab90-fb66d424c69e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\entity\demo\car">
       <UniqueIdentifier>{74bc80d0-8108-4026-8758-fb1142ab0ec6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\entity\demo\heart">
+      <UniqueIdentifier>{8972afbd-4d3a-411d-8412-80c3f5c00083}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,21 +54,18 @@
     <ClCompile Include="shape.cpp">
       <Filter>framework\entity\shape</Filter>
     </ClCompile>
-    <ClCompile Include="heart.cpp">
-      <Filter>framework\entity</Filter>
-    </ClCompile>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="window.cpp">
       <Filter>framework\window</Filter>
     </ClCompile>
     <ClCompile Include="tree.cpp">
-      <Filter>framework\entity\tree</Filter>
+      <Filter>framework\entity\demo\tree</Filter>
     </ClCompile>
     <ClCompile Include="flower.cpp">
-      <Filter>framework\entity\tree</Filter>
+      <Filter>framework\entity\demo\tree</Filter>
     </ClCompile>
     <ClCompile Include="bush.cpp">
-      <Filter>framework\entity\tree</Filter>
+      <Filter>framework\entity\demo\tree</Filter>
     </ClCompile>
     <ClCompile Include="tree.cpp">
       <Filter>boilerplate\entity\tree</Filter>
@@ -71,13 +74,16 @@
       <Filter>framework\window\event</Filter>
     </ClCompile>
     <ClCompile Include="wheel.cpp">
-      <Filter>framework\entity\car</Filter>
+      <Filter>framework\entity\demo\car</Filter>
     </ClCompile>
     <ClCompile Include="car.cpp">
-      <Filter>framework\entity\car</Filter>
+      <Filter>framework\entity\demo\car</Filter>
     </ClCompile>
     <ClCompile Include="suspension.cpp">
-      <Filter>framework\entity\car</Filter>
+      <Filter>framework\entity\demo\car</Filter>
+    </ClCompile>
+    <ClCompile Include="heart.cpp">
+      <Filter>framework\entity\demo\heart</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,32 +116,32 @@
     <ClInclude Include="quad.h">
       <Filter>framework\entity\shape</Filter>
     </ClInclude>
-    <ClInclude Include="heart.h">
-      <Filter>framework\entity</Filter>
-    </ClInclude>
     <ClInclude Include="window.h">
       <Filter>framework\window</Filter>
     </ClInclude>
     <ClInclude Include="tree.h">
-      <Filter>framework\entity\tree</Filter>
+      <Filter>framework\entity\demo\tree</Filter>
     </ClInclude>
     <ClInclude Include="flower.h">
-      <Filter>framework\entity\tree</Filter>
+      <Filter>framework\entity\demo\tree</Filter>
     </ClInclude>
     <ClInclude Include="bush.h">
-      <Filter>framework\entity\tree</Filter>
+      <Filter>framework\entity\demo\tree</Filter>
     </ClInclude>
     <ClInclude Include="event.h">
       <Filter>framework\window\event</Filter>
     </ClInclude>
     <ClInclude Include="wheel.h">
-      <Filter>framework\entity\car</Filter>
+      <Filter>framework\entity\demo\car</Filter>
     </ClInclude>
     <ClInclude Include="car.h">
-      <Filter>framework\entity\car</Filter>
+      <Filter>framework\entity\demo\car</Filter>
     </ClInclude>
     <ClInclude Include="suspension.h">
-      <Filter>framework\entity\car</Filter>
+      <Filter>framework\entity\demo\car</Filter>
+    </ClInclude>
+    <ClInclude Include="heart.h">
+      <Filter>framework\entity\demo\heart</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

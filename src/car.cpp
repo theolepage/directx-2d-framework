@@ -40,7 +40,7 @@ void Car::setPos(double x, double y) {
 }
 
 //--------------------------------------------------------------------------------------
-// Register all components of the wheel.
+// Register all components of the car.
 //--------------------------------------------------------------------------------------
 void Car::Register(ID3D11Device* g_pd3dDevice, D3D11_BUFFER_DESC& bd, D3D11_SUBRESOURCE_DATA& InitData)
 {
@@ -119,6 +119,9 @@ Fender::Fender(double x, double y, FloatColor *primary, FloatColor* second)
 	radiator = new S2DRectangle(x + 0.85, y + 0.25, 0.04, 0.2, new FloatColor(0x8c8c8c));
 }
 
+//--------------------------------------------------------------------------------------
+// Set the posisiton for all inner components.
+//--------------------------------------------------------------------------------------
 void Fender::setPos(double x, double y)
 {
 	tailCabin->x = x;

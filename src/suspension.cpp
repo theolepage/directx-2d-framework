@@ -4,7 +4,7 @@ Suspension::Suspension(double x, double y, double width, double height, int numb
 {
 	double left = x - width / 2.0, right = x + width / 2.0;
 
-	// Add quads above
+	// Add all quads
 	double startY = y - height * number;
 	for (int i = 0; i < number; i++) {
 		quads.push_back(new S2DQuad(
@@ -16,10 +16,14 @@ Suspension::Suspension(double x, double y, double width, double height, int numb
 		startY += 2 * height;
 	}
 
+	// Add the column
 	main = new S2DRectangle(x, y + number / 2 * height, width / 2, (number + 3) * height, primaryColor);
 	second = new S2DRectangle(x, y - number / 2 * height, width / 3, (number + 3) * height, secondColor);
 }
 
+//--------------------------------------------------------------------------------------
+// Set the posisiton for all inner components.
+//--------------------------------------------------------------------------------------
 void Suspension::setPos(double x, double y) {
 	for (auto const& i : quads) {
 		i->x = x;
