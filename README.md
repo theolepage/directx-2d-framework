@@ -1,19 +1,18 @@
-# cpp-directx-boilerplate
-
-![Screenshot](https://raw.githubusercontent.com/thdoteo/cpp-directx-boilerplate/master/docs/screenshot.png)  
-
-A simple framework to make C++ DirectX 3D applications. 
+# directx-2d-framework
 
 [![Language](https://img.shields.io/badge/language-C++-blue.svg)](https://isocpp.org/)
 [![Standard](https://img.shields.io/badge/C%2B%2B-11-blue.svg)](https://en.wikipedia.org/wiki/C%2B%2B#Standardization)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+A simple framework to make C++ DirectX 3D applications. 
+
 ## Usage
 
-Just clone the repository and open the project with Visual Studio.
+Just clone the repository and open the project with Visual Studio. You can compile and run the app directly. Use the `App.cpp` file as an example.
 
-## TL;DR
-It doesn't get much simpler than this code:
+## Example
+
+![Screenshot](https://raw.githubusercontent.com/thdoteo/cpp-directx-boilerplate/master/docs/example.gif)  
 
 ```cpp
 #include <windows.h>
@@ -25,30 +24,43 @@ It doesn't get much simpler than this code:
 
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
-	Window window = Window(L"Framework demonstration", 640, 600, new FloatColor(0xb5d1ff));
+	Window window = Window(L"Hello world", 640, 600, new FloatColor(0xb5d1ff));
+
+	car = new Car(0.2, -0.4);
 
 	window.addEvent((Event*) new OnCharEvent([](HWND hwnd, UINT ch, int cRepeat) {
-		// Do what you want with your event
+		if (ch == 'a') {
+			car->setPos(car->x - UNIT, car->y);
+		}
+		if (ch == 'd') {
+			car->setPos(car->x + UNIT, car->y);
+		}
 	}));
 
-	// Add whatever entity you need
-	window.addEntity(new S2DCircle(0.0, 0.0, 0.3, 100, new FloatColor(0xe2492b)));
+	window.addEntity(car);
+	window.addEntity(new S2DCircle(-0.6, 0.6, 0.2, 100, new FloatColor(0xffe7b4)));
+	window.addEntity(new Tree(0.0f, -1.0, 0.1));
 
 	return window.Start(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 }
 ```
 
-You don't need to worry about tricky details. Just focus on creation, we'll handle all the boring stuff.
+## Documentation
 
-## Tutorial
+All the code running your application shoukd be place in the `App.cpp` file.  
+If you want to make your own shapes, create a class extending `Shape`.
 
-We wrote some useful objects to use to help you out.
+### Window
+Class handling the window creation and its events.
+
 ### Entity
-This class is just a container for everything that needs to be stored in your app and that require a position.
+Class inherited by all objects requiring a position.
+
 ### Shape
-This class give you access to a set of tool such as a vertex buffer, an array of vertices and a color to create your own shapes.
-### S2DCircle
-This class allows you to draw circle easily, you need to specify the position, the radius, the resolution and the color of your circle and you're done.
+Class inherited by all shapes storing their vertices and their color.
+
+#### S2DCircle
+Class to draw a circle depending on its position, radius, resolution and color.
 ```
 S2DCircle(x, y, radius, resolution, color);
 ```
@@ -56,8 +68,6 @@ Example:
 ```cpp
 S2DCircle circle = new S2DCircle(0, 0, 0.5, 100, new FloatColor(0xFF00FF));
 ```
-
-There is a demo file inside, take a look and dive in.
 
 ## To-Do
 

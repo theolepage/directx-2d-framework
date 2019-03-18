@@ -28,7 +28,6 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 		}
 	}));
 
-
 	window.addEntity(car);
 	window.addEntity(new S2DCircle(-0.6, 0.6, 0.2, 100, new FloatColor(0xffe7b4)));
 	window.addEntity(new Tree(0.0f, -1.0, 0.1));
