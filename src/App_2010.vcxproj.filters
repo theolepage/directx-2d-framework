@@ -9,63 +9,75 @@
       <UniqueIdentifier>{2c3d4c8c-5d1a-459a-a05a-a4e4b608a44e}</UniqueIdentifier>
       <Extensions>fx;fxh;hlsl</Extensions>
     </Filter>
-    <Filter Include="boilerplate">
+    <Filter Include="framework">
       <UniqueIdentifier>{b8b29063-fd01-48ff-8779-c7494b9387c6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="boilerplate\entity">
+    <Filter Include="framework\entity">
       <UniqueIdentifier>{556f3e13-216d-448d-9b3d-0d6ffdebc329}</UniqueIdentifier>
     </Filter>
-    <Filter Include="boilerplate\entity\shape">
+    <Filter Include="framework\entity\shape">
       <UniqueIdentifier>{bee95eac-ea57-403e-bff3-568b5e87f236}</UniqueIdentifier>
     </Filter>
-    <Filter Include="boilerplate\render">
-      <UniqueIdentifier>{03626652-95a8-4226-acad-123ff012f4bc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="boilerplate\window">
-      <UniqueIdentifier>{66c3323c-ca58-43df-9d89-92131e466582}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="boilerplate\entity\tree">
+    <Filter Include="framework\entity\tree">
       <UniqueIdentifier>{f27db2ea-ae2e-4292-ab90-fb66d424c69e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="boilerplate\window\event">
+    <Filter Include="framework\render">
+      <UniqueIdentifier>{03626652-95a8-4226-acad-123ff012f4bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\window">
+      <UniqueIdentifier>{66c3323c-ca58-43df-9d89-92131e466582}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\window\event">
       <UniqueIdentifier>{44e522f8-c745-4c7d-9743-d04390d1c766}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="framework\entity\car">
+      <UniqueIdentifier>{74bc80d0-8108-4026-8758-fb1142ab0ec6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="fcolor.cpp">
-      <Filter>boilerplate\render</Filter>
+      <Filter>framework\render</Filter>
     </ClCompile>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="cycloid.cpp">
-      <Filter>boilerplate\entity\shape</Filter>
+      <Filter>framework\entity\shape</Filter>
     </ClCompile>
     <ClCompile Include="quad.cpp">
-      <Filter>boilerplate\entity\shape</Filter>
+      <Filter>framework\entity\shape</Filter>
     </ClCompile>
     <ClCompile Include="shape.cpp">
-      <Filter>boilerplate\entity\shape</Filter>
+      <Filter>framework\entity\shape</Filter>
     </ClCompile>
     <ClCompile Include="heart.cpp">
-      <Filter>boilerplate\entity</Filter>
+      <Filter>framework\entity</Filter>
     </ClCompile>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="window.cpp">
-      <Filter>boilerplate\window</Filter>
+      <Filter>framework\window</Filter>
     </ClCompile>
     <ClCompile Include="tree.cpp">
-      <Filter>boilerplate\entity\tree</Filter>
+      <Filter>framework\entity\tree</Filter>
     </ClCompile>
     <ClCompile Include="flower.cpp">
-      <Filter>boilerplate\entity\tree</Filter>
+      <Filter>framework\entity\tree</Filter>
     </ClCompile>
     <ClCompile Include="bush.cpp">
-      <Filter>boilerplate\entity\tree</Filter>
+      <Filter>framework\entity\tree</Filter>
     </ClCompile>
     <ClCompile Include="tree.cpp">
       <Filter>boilerplate\entity\tree</Filter>
     </ClCompile>
     <ClCompile Include="event.cpp">
-      <Filter>boilerplate\window\event</Filter>
+      <Filter>framework\window\event</Filter>
+    </ClCompile>
+    <ClCompile Include="wheel.cpp">
+      <Filter>framework\entity\car</Filter>
+    </ClCompile>
+    <ClCompile Include="car.cpp">
+      <Filter>framework\entity\car</Filter>
+    </ClCompile>
+    <ClCompile Include="suspension.cpp">
+      <Filter>framework\entity\car</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,43 +90,52 @@
       <Filter>Resource Files</Filter>
     </CLInclude>
     <ClInclude Include="fcolor.h">
-      <Filter>boilerplate\render</Filter>
+      <Filter>framework\render</Filter>
     </ClInclude>
     <ClInclude Include="constant_buffer.h">
-      <Filter>boilerplate\render</Filter>
+      <Filter>framework\render</Filter>
     </ClInclude>
     <ClInclude Include="simple_vertex.h">
-      <Filter>boilerplate\render</Filter>
+      <Filter>framework\render</Filter>
     </ClInclude>
     <ClInclude Include="entity.h">
-      <Filter>boilerplate\entity</Filter>
+      <Filter>framework\entity</Filter>
     </ClInclude>
     <ClInclude Include="shape.h">
-      <Filter>boilerplate\entity\shape</Filter>
+      <Filter>framework\entity\shape</Filter>
     </ClInclude>
     <ClInclude Include="cycloid.h">
-      <Filter>boilerplate\entity\shape</Filter>
+      <Filter>framework\entity\shape</Filter>
     </ClInclude>
     <ClInclude Include="quad.h">
-      <Filter>boilerplate\entity\shape</Filter>
+      <Filter>framework\entity\shape</Filter>
     </ClInclude>
     <ClInclude Include="heart.h">
-      <Filter>boilerplate\entity</Filter>
+      <Filter>framework\entity</Filter>
     </ClInclude>
     <ClInclude Include="window.h">
-      <Filter>boilerplate\window</Filter>
+      <Filter>framework\window</Filter>
     </ClInclude>
     <ClInclude Include="tree.h">
-      <Filter>boilerplate\entity\tree</Filter>
+      <Filter>framework\entity\tree</Filter>
     </ClInclude>
     <ClInclude Include="flower.h">
-      <Filter>boilerplate\entity\tree</Filter>
+      <Filter>framework\entity\tree</Filter>
     </ClInclude>
     <ClInclude Include="bush.h">
-      <Filter>boilerplate\entity\tree</Filter>
+      <Filter>framework\entity\tree</Filter>
     </ClInclude>
     <ClInclude Include="event.h">
-      <Filter>boilerplate\window\event</Filter>
+      <Filter>framework\window\event</Filter>
+    </ClInclude>
+    <ClInclude Include="wheel.h">
+      <Filter>framework\entity\car</Filter>
+    </ClInclude>
+    <ClInclude Include="car.h">
+      <Filter>framework\entity\car</Filter>
+    </ClInclude>
+    <ClInclude Include="suspension.h">
+      <Filter>framework\entity\car</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

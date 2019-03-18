@@ -7,4 +7,5 @@ struct VS_CONSTANT_BUFFER
 	float color_B;
 
 	float pos_X;
+	float pos_Y;
 };

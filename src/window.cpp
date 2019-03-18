@@ -11,12 +11,12 @@
 #include "constant_buffer.h"
 #include "event.h"
 
-Window::Window(LPCWSTR _title, int _width, int _height, FloatColor* _background)
+Window::Window(LPCWSTR title, int width, int height, FloatColor* background)
 {
-	title = _title;
-	width = _width;
-	height = _height;
-	background = _background;
+	this->title = title;
+	this->width = width;
+	this->height = height;
+	this->background = background;
 
 	eventHandler = new EventHandler();
 }
@@ -314,7 +314,13 @@ HRESULT Window::InitDevice()
 	// Fill in a buffer description.
 	D3D11_BUFFER_DESC cbDesc;
 	ZeroMemory(&cbDesc, sizeof(cbDesc));
-	cbDesc.ByteWidth = sizeof(VS_CONSTANT_BUFFER);
+
+	// We need to set the bytewidth and the bytewidth size should be a multiple of 16.
+	// To do so we divide the size by 16, we ceil the result to get a multiplier,
+	// then we multiply it by 16 again and we're done. We won't need to touch this again
+	// if we modify the VS_CONSTANT_BUFFER again in the future.
+	cbDesc.ByteWidth = (int)ceil((double)sizeof(VS_CONSTANT_BUFFER) / 16.0) << 4;
+
 	cbDesc.Usage = D3D11_USAGE_DEFAULT;
 	cbDesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
 	cbDesc.CPUAccessFlags = 0;

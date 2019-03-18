@@ -376,6 +376,7 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="bush.cpp" />
+    <ClCompile Include="car.cpp" />
     <ClCompile Include="cycloid.cpp" />
     <ClCompile Include="event.cpp" />
     <ClCompile Include="fcolor.cpp" />
@@ -383,7 +384,9 @@
     <ClCompile Include="heart.cpp" />
     <ClCompile Include="quad.cpp" />
     <ClCompile Include="shape.cpp" />
+    <ClCompile Include="suspension.cpp" />
     <ClCompile Include="tree.cpp" />
+    <ClCompile Include="wheel.cpp" />
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -391,6 +394,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bush.h" />
+    <ClInclude Include="car.h" />
     <ClInclude Include="constant_buffer.h" />
     <ClInclude Include="cycloid.h" />
     <ClInclude Include="entity.h" />
@@ -402,7 +406,9 @@
     <CLInclude Include="resource.h" />
     <ClInclude Include="shape.h" />
     <ClInclude Include="simple_vertex.h" />
+    <ClInclude Include="suspension.h" />
     <ClInclude Include="tree.h" />
+    <ClInclude Include="wheel.h" />
     <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>

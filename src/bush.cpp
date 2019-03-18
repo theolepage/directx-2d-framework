@@ -3,6 +3,9 @@
 
 Bush::Bush(double x, double y, double radius,int maxFlower,FloatColor* flowerInner, FloatColor* flowerOuter)
 {
+	this->x = x;
+	this->y = y;
+
 	// Set the number of flowers
 	maxFlower = (int)((((double)rand() / (RAND_MAX)) + 1) * maxFlower);
 	
@@ -20,6 +23,9 @@ Bush::Bush(double x, double y, double radius,int maxFlower,FloatColor* flowerInn
 
 Bush::Bush(double x, double y, double radius, int maxFlower)
 {
+	this->x = x;
+	this->y = y;
+
 	// Set the number of flowers
 	maxFlower = (int)(((double)rand() / (RAND_MAX)) + 1) * maxFlower;
 
