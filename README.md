@@ -22,6 +22,9 @@ Just clone the repository and open the project with Visual Studio. You can compi
 #include <xnamath.h>
 #include "window.h"
 
+
+#define UNIT 0.015
+Car *car;
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow)
 {
 	srand(time(NULL));
@@ -155,6 +158,18 @@ S2DCycloid cycloid =  = new S2DCycloid(0.0, 0.0, 1.0, 200, new FloatColor(0x48f4
 		[](int i) {return i % 3 != 0; },
 		[](float i) {return abs(cos(i * 2.0f) * cos(i * 4.0f)); }));
 ```
+### Events
+You may want to handle input device events, to do so we created an easy to use event handler in the window class. First you need to choose an event category.
+* Char events
+* Left mouse button down events
+* Left mouse button up events
+* Right mouse button down events
+* Right mouse button up events
+* On mouse movement events
+* On key up events
+* On key down events
+
+Then you'll need to create an event of that type and to add it to your window using the `addEvent(Event*)` method.
 
 ## To-Do
 
