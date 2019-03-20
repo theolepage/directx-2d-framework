@@ -61,11 +61,11 @@ Class inherited by all objects requiring a position.
 We have made a new object to handle colors called *FloatColor* to easily handle colors with shaders. This object let you create a color object that could be used multiple times.
 This color object can be created using multiple formats:
 1. The single int RGB format
-..* Example: `0xff00ff`
+  * Example: `0xff00ff`
 2. The triple int RGB format
-..* Example: `255, 0, 255`
+  * Example: `255, 0, 255`
 3. The triple float RGB format
-..* Example: `1.0f, 0.0f, 1.0f`
+  * Example: `1.0f, 0.0f, 1.0f`
 > Color channels will be stored as float but you could use `toRGB()` to get it as an integer.
 
 ### Shape
@@ -76,7 +76,7 @@ Class inherited by all shapes storing their vertices and their color.
 #### S2DLine
 Class to draw a line. You'll need to specify the lower position first and then the upper position using their x and y coordinates. You also need to specify the line's width.
 ```
-S2DLine::S2DLine(double x1, double y1,
+S2DLine(double x1, double y1,
 	double x2, double y2,
 	double width, FloatColor *color)
 ```
