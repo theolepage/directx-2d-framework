@@ -12,7 +12,7 @@ Just clone the repository and open the project with Visual Studio. You can compi
 
 ## Example
 
-![Screenshot](https://raw.githubusercontent.com/thdoteo/cpp-directx-boilerplate/master/docs/example.gif)  
+![Screenshot](https://raw.githubusercontent.com/thdoteo/cpp-directx-boilerplate/master/docs/example3.gif)  
 
 ```cpp
 #include <windows.h>
